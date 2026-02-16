@@ -13,7 +13,7 @@ This is a full-stack web application built using React, Java, Spring Boot and Po
 
 ## Installation
 
-1. **The zipped file contains 2 root folders:**
+1. **Clone app from github, product-app contains 2 root folders:**
 
    ```bash
    product-ui-app (Frontend React application)
@@ -23,7 +23,7 @@ This is a full-stack web application built using React, Java, Spring Boot and Po
 2. **Navigate to Frontend folder:**
 
    ```bash
-   cd product-app
+   cd product-ui-app
    npm install
    ```
 
@@ -47,10 +47,11 @@ This is a full-stack web application built using React, Java, Spring Boot and Po
    ```
 
    The React app will run on http://localhost:5173.
+   
 
 3. **Access the App:**
 
-   Open your web browser and navigate to http://localhost:3000 to interact with the React app.
+   Open your web browser and navigate to http://localhost:5173 to interact with the React app.
 
 ## API Routes
 
