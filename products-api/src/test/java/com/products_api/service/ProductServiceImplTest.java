@@ -35,19 +35,18 @@ public class ProductServiceImplTest {
         Mockito.when(repository.findAll()).thenReturn(result);
         List<ProductDTO> data = service.getAllProducts();
 
-        assertEquals(1l,data.get(0).id());
         assertEquals("test",data.get(0).name());
     }
 
     @Test
     public void saveProductTest(){
-        ProductDTO req = new ProductDTO(1l,"test");
+        ProductDTO req = new ProductDTO("test");
         Product res =  new Product();
         res.setId(1l);res.setName("test");
         Mockito.when(repository.save(any(Product.class))).thenReturn(res);
         ProductDTO product = service.saveProduct(req);
 
-        assertEquals(req.id(),res.getId());
+
         assertEquals(req.name(),res.getName());
         org.mockito.Mockito.verify(repository, org.mockito.Mockito.times(1)).save(any(Product.class));
     }

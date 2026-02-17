@@ -37,7 +37,7 @@ public class ProductServiceImpl implements ProductService {
 
     // Convert Product Entity to ProductDTO
     private ProductDTO convertToDTO(Product product) {
-        return new ProductDTO(product.getId(), product.getName());
+        return new ProductDTO(product.getName());
     }
 
     // Convert ProductDTO to Product Entity

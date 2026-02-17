@@ -41,7 +41,7 @@ public class ProductControllerTest {
 
     @Test
     public void testCreateProduct() throws Exception {
-        ProductDTO product = new ProductDTO(1l,"test");
+        ProductDTO product = new ProductDTO("test");
         ObjectMapper mapper = new ObjectMapper();
         String requestBody = mapper.writeValueAsString(product);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/api/products")
