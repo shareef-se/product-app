@@ -1,8 +1,7 @@
 package com.products_api.service;
 
-import com.products_api.controller.ProductController;
+import com.products_api.model.ProductEntity;
 import com.products_api.model.Product;
-import com.products_api.model.ProductDTO;
 import com.products_api.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDTO> getAllProducts() {
+    public List<Product> getAllProducts() {
         logger.info("Fetching Products from db");
         return productRepository.findAll().stream()
                 .map(this::convertToDTO)
@@ -29,20 +28,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDTO saveProduct(ProductDTO productDTO) {
-        Product product = convertToEntity(productDTO);
-        Product savedProduct = productRepository.save(product);
+    public Product saveProduct(Product productDTO) {
+        ProductEntity product = convertToEntity(productDTO);
+        ProductEntity savedProduct = productRepository.save(product);
         return convertToDTO(savedProduct);
     }
 
     // Convert Product Entity to ProductDTO
-    private ProductDTO convertToDTO(Product product) {
-        return new ProductDTO(product.getName());
+    private Product convertToDTO(ProductEntity product) {
+        return new Product(product.getName());
     }
 
     // Convert ProductDTO to Product Entity
-    private Product convertToEntity(ProductDTO productDTO) {
-        Product product = new Product();
+    private ProductEntity convertToEntity(Product productDTO) {
+        ProductEntity product = new ProductEntity();
         product.setName(productDTO.name());
         return product;
     }

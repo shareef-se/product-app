@@ -1,6 +1,6 @@
 package com.products_api.controller;
 
-import com.products_api.model.ProductDTO;
+import com.products_api.model.Product;
 import com.products_api.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,15 +19,15 @@ public class ProductController {
     }
 
     @GetMapping("/listproducts")
-    public List<ProductDTO> getAllProducts() {
+    public List<Product> getAllProducts() {
         logger.info("getAllProducts invoke");
         return productService.getAllProducts();
     }
 
     @PostMapping
-    public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
+    public Product createProduct(@RequestBody Product product) {
         logger.info("Create product invoke");
-        return productService.saveProduct(productDTO);
+        return productService.saveProduct(product);
     }
 
 }
